@@ -1,0 +1,4 @@
+---
+- name: traffic task
+  shell: source /etc/profile && docker run -d --rm --name tape3 -e TAPE_LOGLEVEL=debug --network host -v $PWD:/config ghcr.io/hyperledger-twgc/tape:edge tape verion
+  #traffic -c /config/test/configlatest.yaml --rate=10 -n 500

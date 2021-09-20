@@ -1,0 +1,10 @@
+---
+- hosts: observer
+  gather_facts: no
+  roles:
+  - observer
+
+- hosts: traffic
+  gather_facts: no
+  roles:
+  - traffic

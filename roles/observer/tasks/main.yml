@@ -1,0 +1,5 @@
+---
+- name: observer task
+  shell: source /etc/profile && docker run -d --rm --name tape -e TAPE_LOGLEVEL=debug --network host -v $PWD:/config ghcr.io/hyperledger-twgc/tape:edge tape verion
+  #observer -c /config/test/configlatest.yaml -n 500
+
