@@ -16,14 +16,27 @@
 ---
 ## Prerequisites
 
+if you are new to ansible, tape or fabric, please go to [Hello_world.md](./Hello_world.md)
+
 [ansible](https://command-not-found.com/ansible) is Prerequisite
 ```bash
 ansible -v
-ansible-galaxy collection install community.docker
 ```
 update host and config your host to use ansible.
-todo
-making your config.
+- edit your config.yaml under files folder.
+- edit the config.yaml given to tape in distributed.yaml
+```
+- hosts: 127.0.0.1
+  roles:
+  - traffic
+  vars: 
+    tape_config_file: configlatest2.yaml
+```
+- host: the host name in your ansible host
+- roles in traffic and observer
+- traffic will start a traffic mode tape with `/roles/traffic/tasks/main.yml`
+- observer will start a observer mode tape.
+- tape_config_file the file name under files folder, which will use as tape config file.
 
 ---
 
@@ -31,6 +44,11 @@ making your config.
 
 ```bash
 ansible-playbook distributed.yml
+```
+
+for debugging
+```bash
+ansible-playbook distributed.yml -vvvv
 ```
 
 tbd docker:
