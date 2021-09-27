@@ -50,7 +50,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ---
 ## License
-[MIT](https://github.com/SamYuan1990/distributedtape/blob/main/LICENSE)
+[Apache](https://github.com/SamYuan1990/distributedtape/blob/main/LICENSE)
 
 ---
 ## Contact
