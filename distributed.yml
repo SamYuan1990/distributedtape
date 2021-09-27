@@ -1,10 +1,11 @@
 ---
-- hosts: observer
+- hosts: 127.0.0.1
   gather_facts: no
   roles:
   - observer
+  - traffic
 
-- hosts: traffic
+- hosts: localhost
   gather_facts: no
   roles:
   - traffic

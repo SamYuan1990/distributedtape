@@ -1,4 +1,13 @@
 ---
+- name: mkdir
+  shell: mkdir -p /tmp/tape
+
+- name: copy file to /tmp/tape
+  shell: echo place holder  
+
 - name: traffic task
-  shell: source /etc/profile && docker run -d --rm --name tape3 -e TAPE_LOGLEVEL=debug --network host -v $PWD:/config ghcr.io/hyperledger-twgc/tape:edge tape verion
+  shell: source /etc/profile && docker run -d --rm -e TAPE_LOGLEVEL=debug --network host -v $PWD:/config ghcr.io/hyperledger-twgc/tape:edge tape verion
   #traffic -c /config/test/configlatest.yaml --rate=10 -n 500
+
+#- name: clean up
+#  shell: source /etc/profile && docker rm tape3
