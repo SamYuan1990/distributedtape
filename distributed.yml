@@ -1,11 +1,25 @@
 ---
+- hosts: All
+  roles:
+  - general
+
 - hosts: 127.0.0.1
-  gather_facts: no
+  #gather_facts: no
   roles:
   - observer
-  - traffic
+  vars: 
+    tape_config_file: configlatest1.yaml
 
-- hosts: localhost
-  gather_facts: no
+- hosts: 127.0.0.1
+  #gather_facts: no
   roles:
   - traffic
+  vars: 
+    tape_config_file: configlatest2.yaml
+
+- hosts: localhost
+  #gather_facts: no
+  roles:
+  - traffic
+  vars: 
+    tape_config_file: configlatest3.yaml

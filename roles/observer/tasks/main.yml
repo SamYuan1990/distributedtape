@@ -1,17 +1,7 @@
 ---
-- name: mkdir
-  shell: mkdir -p /tmp/tape && chmod -R 755 /tmp/tape 
+- name: pre check
+  debug: 
+    msg: will use file {{tape_config_file}} to start tape on node {{ ansible_facts['nodename'] }}
 
-- name: copy file to /tmp/tape
-  copy:
-    src: /Users/yuanyi/OpenSource/distributedtape/files
-    dest: /tmp/tape
-    directory_mode: yes
-    force: yes
-  
 - name: observer task
-  shell: source /etc/profile && docker run -d --rm -e TAPE_LOGLEVEL=debug --network host -v $PWD:/config ghcr.io/hyperledger-twgc/tape:edge tape verion
-  #observer -c /config/test/configlatest.yaml -n 500
-
-#- name: clean up
-#  shell: source /etc/profile && docker rm tape
+  shell: source /etc/profile && docker run -d -e TAPE_LOGLEVEL=debug --network host -v /tmp/tape/files:/config ghcr.io/hyperledger-twgc/tape:edge tape observer -c /config/{{tape_config_file}}

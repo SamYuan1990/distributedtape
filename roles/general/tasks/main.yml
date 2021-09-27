@@ -1,0 +1,8 @@
+---
+- name: mkdir
+  shell: mkdir -p /tmp/tape && chmod -R 777 /tmp/tape
+
+- name: copy file to /tmp/tape
+  copy:
+    src: /Users/yuanyi/OpenSource/distributedtape/files
+    dest: /tmp/tape
