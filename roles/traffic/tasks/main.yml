@@ -1,9 +1,13 @@
 ---
 - name: mkdir
-  shell: mkdir -p /tmp/tape
+  shell: mkdir -p /tmp/tape && chmod -R 755 /tmp/tape 
 
 - name: copy file to /tmp/tape
-  shell: echo place holder  
+  copy:
+    src: /Users/yuanyi/OpenSource/distributedtape/files
+    dest: /tmp/tape
+    directory_mode: yes
+    force: yes
 
 - name: traffic task
   shell: source /etc/profile && docker run -d --rm -e TAPE_LOGLEVEL=debug --network host -v $PWD:/config ghcr.io/hyperledger-twgc/tape:edge tape verion
