@@ -4,4 +4,4 @@
     msg: will use {{tape_config_file}} to start tape on node {{ ansible_facts['nodename'] }}
 
 - name: traffic task
-  shell: source /etc/profile && docker run -d --rm -e TAPE_LOGLEVEL=debug --network host -v /tmp/tape/files:/config ghcr.io/hyperledger-twgc/tape:edge tape traffic -c /config/{{tape_config_file}} --rate=10 -n 50
+  shell: source /etc/profile && docker run -d --rm -e TAPE_LOGLEVEL=debug --network host -v /tmp/tape/files:/config ghcr.io/hyperledger-twgc/tape:edge tape traffic -c /config/{{tape_config_file}} --rate=10
